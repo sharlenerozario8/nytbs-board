@@ -3,6 +3,7 @@ import './App.css';
 import collection from './collection.json'
 import BookCard from "./BookCard";
 
+//commenting for json branch
 
 const App = () =>{
 
@@ -36,7 +37,7 @@ const App = () =>{
 
     return(
         <div className="app">
-            <h1>NYT Best Sellers</h1>
+            <h1>NYT Best Sellers (with json file)</h1>
             <br />
 
             {/* ------------------the working titles----------------
