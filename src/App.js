@@ -8,25 +8,19 @@ const App = () =>{
 
     const [books, setBooks]=useState([]);
 
-    const bookjson=collection.results.books;
-
-    console.log(bookjson)
-
-    
-
-    useEffect(() => {
-        setBooks(collection.results.books);
-    },[])
-
-
+    // const { REACT_APP_NYT_API_KEY } = process.env;
+    // console.log({REACT_APP_NYT_API_KEY});
 // ------------------------this works-----------------------
 
-    // useEffect(() => {
-    //     fetch("https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=<key>")
-    //     .then(res => res.json())
-    //     .then((data) => {setBooks(data.results)})
-    //     // .then(console.log(books))
-    // },[])
+    useEffect(() => {
+        // fetch("https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=uzBs0NLEDNO1qdHoAd0N7ujAWkfb1LEn")
+        fetch("https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=uzBs0NLEDNO1qdHoAd0N7ujAWkfb1LEn")
+        // fetch(`https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=${process.env.REACT_APP_NYT_API_KEY}`)
+
+        .then(res => res.json())
+        .then((data) => {setBooks(data.results.books)})
+        .then(console.log(books))
+    },[])
     
 // ---------------------------------------------------------------------
 
@@ -38,18 +32,7 @@ const App = () =>{
         <div className="app">
             <h1>NYT Best Sellers</h1>
             <br />
-
-            {/* ------------------the working titles----------------
-            <ul>
-                {books.map(book => (
-                <li >
-                    {book.title}
-                </li>
-                ))}
-            </ul>
-            --------------------------------------------------- */}
-
-
+            
             {
                 books?.length > 0 ? (
                     <div className="container">
