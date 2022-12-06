@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
-import collection from './collection.json'
+// import collection from './collection.json'
 import BookCard from "./BookCard";
 
 
@@ -19,7 +19,7 @@ const App = () =>{
 
         .then(res => res.json())
         .then((data) => {setBooks(data.results.books)})
-        .then(console.log(books))
+        // .then(console.log(books))
     },[])
     
 // ---------------------------------------------------------------------
